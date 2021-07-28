@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: Header">
+    <title>회원가입</title>
+</head>
+    <body class="text-center">
+        <div class="form-signin">
+            <img class="mb-4" src="https://e7.pngegg.com/pngimages/710/549/png-clipart-pig-computer-icons-pig-animals-vector-icons.png" alt="" width="72" height="57">
+                <h1 class=femi mb-4 fw-normal style="font-size: 45px">패미 회원가입</h1>
+            <form action="/uRegister" method="post" name="registerForm">
+
+                <!--ID 입력-->
+                <div class="wrap-input100- validate-input m-b-14">
+                    <div class="input-group mb-2 mt-3">
+                        <input class="input50 form-control " type="text" id="user_id" name="user_id"  placeholder="아이디" autocomplete="off" required/>
+                        <span class="focus-input50"></span>
+                        <a class="btn btn-secondary btn-large form-control test" onclick="idcheck()" style="color: #3768ff" id="id_check">중복체크</a>
+                        <input type="hidden"id="chkYn" value="0">
+                    </div>
+                </div>
+                <!--패스워드 입력-->
+                <input type="password" name="user_pwd" class="form-control mb-2"  placeholder="비밀번호" autocomplete="off" required/>
+                <input type="text" name="user_name" class="form-control mb-2" placeholder="이름" autocomplete="off" required/>
+                <input type="text" name="email" class="form-control mb-4" placeholder="이메일" autocomplete="off" required/>
+                <button type="submit" class="btn btn-secondary btn-large form-control mb-2" style="color: aqua" id ="btn_join">Join</button>
+                <a href="javascript:history.go(-1);" class="btn btn-secondary btn-large form-control" id="btn_loginForm">Back</a>
+            </form>
+
+        </div>
+    </body>
+<th:block th:replace="fragments/footer :: Footer"></th:block>
+<script th:src="@{/js/user/user_signup.js}"></script>
+</html>

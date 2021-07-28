@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default}">
+
+<body layout:fragment="content">
+
+
+<!-- 메인 인덱스 [s] -->
+<main class="container">
+        <!--베스트 글부분-->
+    <div class="row mb-2" >
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            BEST
+        </h3>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">FASHION NEWS</strong>
+                    <h3 class="mb-0">시티보이룩</h3>
+                    <div class="mb-1 text-muted">도시의 꼬마</div>
+                    <p class="card-text mb-auto">시티보이란? 무엇인지 같이한번 알아보도록하자</p>
+                    <a href="#" class="stretched-link">바로가기</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img class=width="200" height="250" src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjNfMjc5/MDAxNTk1NDkwMDU0MjQx.zzaRKGHMIMqNX7Ga2DmFBQZnDFbaBEet4Ya0aB68VMMg.dGyE12s8vqCMWUgG-7w1eKdJg_prhp0x8iWJ6G8ZMHsg.JPEG.jk_woo71/style9_008.jpg?type=w800"></img>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">SNEAKERS</strong>
+                    <h3 class="mb-0">시티보이 필수템</h3>
+                    <div class="mb-1 text-muted">뉴발란스 992</div>
+                    <p class="card-text mb-auto">시티보이의 시작은 오버사이징 슈즈!</p>
+                    <a href="#" class="stretched-link">바로가기</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 최신글 [s] -->
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                최근 개시글
+            </h3>
+            <div class="col-md-11">
+                <div class=" ml-1 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">SNEAKERS</strong>
+                        <h3 class="mb-0">시티보이 필수템</h3>
+                        <div class="mb-1 text-muted">뉴발란스 992</div>
+                        <p class="card-text mb-auto">시티보이의 시작은 오버사이징 슈즈!</p>
+                        <a href="#" class="stretched-link">바로가기</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 최신글 [e] -->
+        <th:block th:replace="fragments/sidebar :: SideBar"></th:block>
+    </div>
+</main>
+<!-- 메인 인덱스 [e] -->
+
+<!-- 푸터 [s] -->
+<footer class="blog-footer">
+    <th:block th:replace="fragments/footer :: Footer"></th:block>
+</footer>
+<!-- 푸터 [e] -->
+</body>
+</html>

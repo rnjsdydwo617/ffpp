@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // spring boot starter package
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.5.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.5.2'
+
+    // web template engine
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // thymeleaf-layout dialect
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.3'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // mybatis + jdbc maria (3.x version is beta version)
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.3'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}
