@@ -2,6 +2,7 @@ package com.example.test.user;
 
 import lombok.Data;
 
+// edit
 @Data
 public class UserVO {
     private int result;
