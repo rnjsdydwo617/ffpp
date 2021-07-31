@@ -10,5 +10,6 @@ public class UserVO {
     private String user_pwd;
     private String user_name;
     private String email;
+    private String msg;
 }
 
