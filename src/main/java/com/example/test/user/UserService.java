@@ -21,9 +21,9 @@ public class UserService {
 
     public String UserRegister(UserVO vo) {
         if (uMapper.UserRegister(vo) == 0) {
-            return "signup";
+            return "body/user/signup";
         } else {
-            return "hello";
+            return "body/user/login";
         }
     }
 
