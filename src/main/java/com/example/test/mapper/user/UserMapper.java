@@ -1,6 +1,6 @@
 package com.example.test.mapper.user;
 
-import com.example.test.user.UserVO;
+import com.example.test.mvc.user.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
