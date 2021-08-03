@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Service
 public class UserService {
 
@@ -12,7 +15,7 @@ public class UserService {
     UserMapper uMapper;
 
     //로그인
-    public int LoginAction(UserVO vo) {
+    public UserVO LoginAction(UserVO vo) {
         return  uMapper.LoginAction(vo);
     }
     public int IdCheck(UserVO vo){

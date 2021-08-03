@@ -3,8 +3,8 @@
 <mapper namespace="com.example.test.mapper.user.UserMapper">
 
     <!-- 로그인 카운트 쿼리 -->
-    <select id="LoginAction" parameterType="com.example.test.user.UserVO" resultType="Integer">
-        SELECT COUNT(*) FROM SYS_USER_CD
+    <select id="LoginAction" parameterType="com.example.test.user.UserVO" resultType="com.example.test.user.UserVO">
+        SELECT COUNT(*) , user_id , user_name FROM SYS_USER_CD
         WHERE user_id = #{user_id} AND
               user_pwd = #{user_pwd}
 

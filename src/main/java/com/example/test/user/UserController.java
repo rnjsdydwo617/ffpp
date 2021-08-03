@@ -23,7 +23,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+//GET,POST,REQUEST
+//1. GET , POST  말 그대로 메소드 방식의 이름
+//2. REQUEST는 후에 메소드 방식 지정 할수 있음 지정 없은면 기본은 GET
 
 @Controller
 public class UserController {
@@ -31,7 +33,7 @@ public class UserController {
     @Autowired
     UserService uSvc;
 
-    @GetMapping(value = "/login")
+    @RequestMapping(value = "/login")
     public String loginPage() {
         return "body/user/login";
     }
@@ -45,11 +47,17 @@ public class UserController {
         return mav;
     }
 
-    @GetMapping(value = "/fashion_news")
+    @RequestMapping(value = "/fashion_news")
     public String contentpage(){
         return "body/fashion_news";
     }
 
+    @RequestMapping(value = "/logoutAction")
+    public String logoutAction(HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        session.invalidate();
+        return "hello";
+    }
 
     @PostMapping(value = "/uRegister")
     public String UserRegister(UserVO vo){

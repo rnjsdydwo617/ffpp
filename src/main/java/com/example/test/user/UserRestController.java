@@ -5,6 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
+//가장 큰 사용 목적은 ajax에서 넘겨준 json정보를 받기 위함이다.
+//일반적인 컨트롤러에선 json을 받아올 수 없음
 @RestController
 public class UserRestController {
 
@@ -22,8 +28,18 @@ public class UserRestController {
     }
 
     @PostMapping(value = "/loginAction")
-    public int LoginAction(UserVO vo) {
-        int result = uSvc.LoginAction(vo);
+    public UserVO LoginAction(UserVO vo , HttpServletRequest req) throws IOException {
+        HttpSession session = req.getSession();
+        UserVO result = uSvc.LoginAction(vo);
+
+        if(result.getUser_id().equals("")){
+            result.setResult(0);
+        } else {
+            result.setResult(1);
+            session.setAttribute("userData" , result);
+            session.setMaxInactiveInterval(60*60*24);
+        }
+
         return result;
     }
     @PostMapping(value = "/IdCheck")
