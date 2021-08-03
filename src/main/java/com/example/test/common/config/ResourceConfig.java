@@ -9,11 +9,13 @@ public class ResourceConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(
+                "ckeditor/**",
                 "/img/**",
                 "/static/css/**",
                 "/js/**",
                 "/js/**/*")
                 .addResourceLocations(
+                        "classpath:/static/ckeditor/",
                         "classpath:/static/img/",
                         "classpath:/static/css/",
                         "classpath:/static/js/",

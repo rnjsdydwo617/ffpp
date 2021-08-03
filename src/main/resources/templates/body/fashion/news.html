@@ -10,11 +10,11 @@
     <input name="board_title" placeholder="제목을 입력해주세요.">
     <textarea id="board_contents" name="board_contents" cols="30" rows="8"></textarea>
     <script>
-        CKEDITOR.replace('board_contents' , {
-            height : 500 ,
-            'filebrowerUploadUrl' : '/body/fashion'
+        CKEDITOR.replace('board_contents', {
+            height : 500
         });
     </script>
+    <button type="submit" th:text="작성"></button>
 </form>
 <th:block th:replace="fragments/sidebar :: SideBar"></th:block>
 </body>
