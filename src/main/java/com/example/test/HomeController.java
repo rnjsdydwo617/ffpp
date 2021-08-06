@@ -1,22 +1,28 @@
 package com.example.test;
 
+import com.example.test.mvc.board.BoardService;
+import com.example.test.mvc.board.BoardVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 
 @Controller
 public class HomeController {
-    @GetMapping(value = "/")
-    public String home(){
-        return "hello";
+    @Autowired
+    private BoardService bSvc;
+    @RequestMapping(value = "/")
+    public ModelAndView BoardGet1(){
+        ModelAndView mav = new ModelAndView();
+        List<BoardVO> BoardGet = bSvc.BoardGet();
+        mav.addObject("boardGet" , BoardGet);
+        mav.setViewName("hello");
+        return mav;
     }
-
-    @GetMapping(value = "/url")
-    public String baseRedirection(String type, String query) {
-        String url = "body/"+type+"/"+query;
-        return url;
-    }
-
 
     // type -> 대분류
     // query -> 소분류

@@ -12,6 +12,22 @@
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
             BEST
         </h3>
+            <div class="col-md-6"th:each="list :${boardGet}">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary"th:text="${list.}">SNEAKERS</strong>
+                        <h3 class="mb-0" th:text="${list.board_title}"></h3>
+                        <div class="mb-1 text-muted"th:text="${list.board_title_sub}"></div>
+                        <!--<p class="card-text mb-auto"th:text="${list.board_contents}"></p>-->
+                        <pre class="card-text mb-auto" th:text="${list.board_contents}"></pre>
+                        <a href="#" class="stretched-link">바로가기</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+                    </div>
+                </div>
+            </div>
+
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">

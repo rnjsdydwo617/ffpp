@@ -6,16 +6,32 @@
 
 </head>
 <body layout:fragment="content">
-<form action="writeAction" method="post">
-    <input name="board_title" placeholder="제목을 입력해주세요.">
-    <textarea id="board_contents" name="board_contents" cols="30" rows="8"></textarea>
-    <script>
-        CKEDITOR.replace('board_contents', {
-            height : 500
-        });
-    </script>
-    <button type="submit" th:text="작성"></button>
-</form>
-<th:block th:replace="fragments/sidebar :: SideBar"></th:block>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                글쓰기
+            </h3>
+            <div class="col-md-11">
+                <div class=" ml-1 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <form action="BoardRegister" method="post">
+                            <input name="board_title" placeholder="제목을 입력해주세요.">
+                            <textarea name="board_contents" cols="30" rows="8"></textarea>
+                            <script>
+                                CKEDITOR.replace('board_contents', {
+                                    height : 500
+                                });
+                            </script>
+                            <button class="fa fa-plus" type="submit" th:text="작성"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <th:block th:replace="fragments/sidebar :: SideBar"></th:block>
+    </div>
+    <a class="btn btn-sm btn-outline-secondary" th:href="@{/}">글쓰기</a>
+</div>
 </body>
 </html>

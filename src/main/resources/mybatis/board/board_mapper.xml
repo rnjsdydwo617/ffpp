@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.test.mapper.Board.BoardMapper">
     <insert id="BoardRegister" parameterType="com.example.test.mvc.board.BoardVO">
-        CALL SYS_BORAD_REGISTER(#{board_title},#{board_contents})
+        CALL SYS_BOARD_REGISTER(#{board_title},#{board_contents})
     </insert>
+
+    <select id="BoardGet" resultType="com.example.test.mvc.board.BoardVO">
+        CALL SYS_BOARD_GET()
+    </select>
 </mapper>
