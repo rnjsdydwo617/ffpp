@@ -19,4 +19,7 @@ public class BoardService {
     public List<BoardVO> BoardGet() {
         return bMap.BoardGet();
     }
+    public List<CategorieVO> CategorieGet(){
+        return bMap.CategorieGet();
+    }
 }

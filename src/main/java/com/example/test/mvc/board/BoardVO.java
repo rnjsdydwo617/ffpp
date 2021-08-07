@@ -20,3 +20,4 @@ public class BoardVO {
     private String update_day;
     private int view;
 }
+

@@ -15,11 +15,9 @@
             <div class="col-md-6"th:each="list :${boardGet}">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary"th:text="${list.}">SNEAKERS</strong>
-                        <h3 class="mb-0" th:text="${list.board_title}"></h3>
-                        <div class="mb-1 text-muted"th:text="${list.board_title_sub}"></div>
-                        <!--<p class="card-text mb-auto"th:text="${list.board_contents}"></p>-->
-                        <pre class="card-text mb-auto" th:text="${list.board_contents}"></pre>
+                        <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_code}">SNEAKERS</strong>
+                        <h3 class="mb-0" th:utext="${list.board_title}"></h3>
+                        <div class="mb-1 text-muted"th:utext="${list.board_title_sub}"></div>
                         <a href="#" class="stretched-link">바로가기</a>
                     </div>
                     <div class="col-auto d-none d-lg-block">

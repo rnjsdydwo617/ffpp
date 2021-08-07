@@ -8,4 +8,7 @@
     <select id="BoardGet" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_BOARD_GET()
     </select>
+    <select id="CategorieGet" resultType="com.example.test.mvc.board.CategorieVO">
+        SELECT * FROM SYS_CATEGORIE_LIST
+    </select>
 </mapper>

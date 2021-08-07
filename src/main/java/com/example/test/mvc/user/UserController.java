@@ -49,12 +49,7 @@ public class UserController {
     public String signup() { return "body/user/signup"; }
 
 
-    @RequestMapping(value = "/fashion_news")
-    public ModelAndView fashion_news() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("body/fashion/news");
-        return mav;
-    }
+
     //Model And View를 사용 하는 경우
     //단순 페이지 이동을 해야하는 경우
     //1. Mav 사용 하는 경우 -- 게시판 목록을 DB에서 가져와서 자바에서 List에 담고 뷰에 뿌려줘야 할때

@@ -36,4 +36,12 @@ public class BoardController {
             out.flush();
         }
     }
+
+    @RequestMapping(value = "/fashion_news")
+    public ModelAndView fashion_news() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("mnList", bVc.CategorieGet());
+        mav.setViewName("body/fashion/news");
+        return mav;
+    }
 }
