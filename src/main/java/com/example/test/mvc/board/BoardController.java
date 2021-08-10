@@ -30,18 +30,12 @@ public class BoardController {
         PrintWriter out = res.getWriter();
 
         if(result == 0){
-            out.println("<script>alert('게시글 등록에 실패하였습니다.'); location.href='/body/fashion/news'; </script>");
+            out.println("<script>alert('게시글 등록에 실패하였습니다.'); location.href='/body/fashion/write'; </script>");
         } else {
             out.println("<script>alert('게시글 등록에 성공 하였습니다.'); location.href='/'; </script>");
             out.flush();
         }
     }
 
-    @RequestMapping(value = "/fashion_news")
-    public ModelAndView fashion_news() {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("mnList", bVc.CategorieGet());
-        mav.setViewName("body/fashion/news");
-        return mav;
-    }
+
 }

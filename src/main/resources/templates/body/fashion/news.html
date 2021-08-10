@@ -2,42 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="~{layout/default}">
-<head>
+<th:block layout:fragment="content">
+    <body>
+    <div class="row mb-2" >
 
-</head>
-<body layout:fragment="content">
-<div class="container">
-    <div class="row g-5">
-        <div class="col-md-8">
-            <h3 class="pb-4 mb-4 fst-italic border-bottom">
-                글쓰기
-            </h3>
-            <div class="col-md-11">
-                <div class=" ml-1 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <form action="BoardRegister" method="post">
-                            <input name="board_title" placeholder="제목을 입력해주세요.">
-                            <select name="mnList">
-                                <option value="none">카테고리를 선택하세요.</option>
-                                <th:block th:each="mnList :${mnList}">
-                                    <option th:value="${mnList.categorie_code}" th:text="${mnList.categorie_name}"></option>
-                                </th:block>
-                            </select>
-                            <textarea name="board_contents" cols="30" rows="8"></textarea>
-                            <script>
-                                CKEDITOR.replace('board_contents', {
-                                    height : 500
-                                });
-                            </script>
-                            <button class="fa fa-plus" type="submit" th:text="작성"></button>
-                        </form>
-                    </div>
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            BEST
+        </h3>
+        <div class="col-md-11"th:each="list :${boardGet}">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
+                    <h3 class="mb-2" th:utext="${list.board_title}"></h3>
+                    <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
+                    <a href="#" class="stretched-link">바로가기</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
                 </div>
             </div>
         </div>
-        <th:block th:replace="fragments/sidebar :: SideBar"></th:block>
     </div>
-    <a class="btn btn-sm btn-outline-secondary" th:href="@{/}">글쓰기</a>
-</div>
-</body>
+    </body>
 </html>

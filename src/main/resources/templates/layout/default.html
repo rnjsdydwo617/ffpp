@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--공통 헤더-->
 <head th:replace="fragments/header :: MainHeader"></head>
 
-<!--컨텐츠 페이지 start-->
 <th:block th:replace="fragments/top_nav :: Topnav" ></th:block>
-<body layout:fragment="content">
 
-
-<footer></footer>
+<body class="container">
+    <div class="row g-5 mt-1">
+        <div class="col mb-8">
+            <th:block layout:fragment="content"></th:block> <!--col mb-8 -->
+        </div>
+        <th:block th:replace="fragments/sidebar :: SideBar"></th:block>
+    </div>
 </body>
-
 </html>

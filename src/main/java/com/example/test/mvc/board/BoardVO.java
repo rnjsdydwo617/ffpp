@@ -10,8 +10,9 @@ public class BoardVO {
     private int result;
     private String board_code;
     private String categorie_code;
+    private String categorie_name;
     private String board_title;
-    private String board_title_sub;
+    private String board_sub_title;
     private String board_contents;
     private String img_size;
     private String ing_url;

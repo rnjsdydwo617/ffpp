@@ -21,7 +21,7 @@ public class BoardREST {
         System.out.println(bSvc.BoardGet());
         return "body/fashion/news";
     }*/
-    @RequestMapping(value = "/body/fashion/news")
+    @RequestMapping(value = "/body/fashion/write")
     public ModelAndView BoardGet1(){
         ModelAndView mav = new ModelAndView();
         List<BoardVO> BoardGet = bSvc.BoardGet();

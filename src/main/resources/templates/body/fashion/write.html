@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default}">
+
+<th:block layout:fragment="content">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        글쓰기
+    </h3>
+    <div class="col-md-11">
+        <div class=" ml-1 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <form action="BoardRegister" method="post">
+                    <h6 class="fst-italic">
+                        카테고리를 선택하세요
+                    </h6>
+                    <!--each  addObject에서 부여된 리스트에 별칭을 줘야 데이터를 뽑아 올 수 있다 -->
+                    <select name="categorie_code">
+                        <option value="none">카테고리</option>
+                        <th:block th:each="mnList :${mnList}">
+                            <option name="categorie_code"th:value="${mnList.categorie_code}" th:text="${mnList.categorie_name}"></option>
+                        </th:block>
+                    </select>
+                    <div class="mb-3">
+                        <label for="board_title">제목</label>
+                        <input type="text" class="form-control" name="board_title" id="board_title" placeholder="제목을 입력해 주세요">
+                    </div>
+                    <div class="mb-3">
+                        <label for="board_title">부제목</label>
+                        <input type="text" class="form-control" name="board_sub_title" id="board_sub_title" placeholder="부제목을 입력해 주세요">
+                    </div>
+                    <textarea name="board_contents" cols="30" rows="8"></textarea>
+                    <script>
+                        CKEDITOR.replace('board_contents', {
+                            height : 500
+                        });
+                    </script>
+                    <button class="fa fa-plus" type="submit" th:text="작성"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-sm btn-outline-secondary" th:href="@{/}">글쓰기</a>
+</th:block>
+</html>
