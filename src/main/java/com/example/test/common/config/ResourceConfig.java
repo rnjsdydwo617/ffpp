@@ -13,12 +13,14 @@ public class ResourceConfig implements WebMvcConfigurer {
                 "/img/**",
                 "/static/css/**",
                 "/js/**",
-                "/js/**/*")
+                "/js/**/*" ,
+                "ckeditor-add/**")
                 .addResourceLocations(
                         
                         "classpath:/static/img/",
                         "classpath:/static/css/",
                         "classpath:/static/js/",
-                        "classpath:/static/js/**/");
+                        "classpath:/static/js/**/",
+                        "classpath:/static/ckeditor-add/");
     }
 }

@@ -29,10 +29,12 @@
                         <label for="board_title">부제목</label>
                         <input type="text" class="form-control" name="board_sub_title" id="board_sub_title" placeholder="부제목을 입력해 주세요">
                     </div>
+
                     <textarea name="board_contents" cols="30" rows="8"></textarea>
                     <script>
-                        CKEDITOR.replace('board_contents', {
-                            height : 500
+                        CKEDITOR.replace('board_contents' , {
+                            height: 500,
+                            filebrowserUploadUrl : '/board/receive_img'
                         });
                     </script>
                     <button class="fa fa-plus" type="submit" th:text="작성"></button>
@@ -41,5 +43,6 @@
         </div>
     </div>
     <a class="btn btn-sm btn-outline-secondary" th:href="@{/}">글쓰기</a>
+
 </th:block>
 </html>

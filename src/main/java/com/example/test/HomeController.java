@@ -35,7 +35,9 @@ public class HomeController {
     }
     @RequestMapping(value = "/fashion_news")
     public ModelAndView fashion_news() {
+        List<BoardVO> BoardGet = bSvc.BoardGet();
         ModelAndView mav = new ModelAndView();
+        mav.addObject("boardGet",BoardGet);
         mav.setViewName("body/fashion/news");
         return mav;
     }
