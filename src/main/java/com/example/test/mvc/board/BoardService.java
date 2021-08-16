@@ -22,4 +22,7 @@ public class BoardService {
     public List<CategorieVO> CategorieGet(){
         return bMap.CategorieGet();
     }
+    public List<BoardVO> CategorieBoardGet(){
+        return bMap.BoardGet();
+    }
 }

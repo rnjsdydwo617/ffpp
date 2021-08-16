@@ -22,3 +22,4 @@ public class BoardVO {
     private int view;
 }
 
+

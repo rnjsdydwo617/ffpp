@@ -26,7 +26,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.filebrowserUploadMethod = 'form';
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.filebrowserUploadUrl      = '/upload.do?type=Files',
-		config.filebrowserImageUploadUrl = '/upload.do?type=Images',
-		config.filebrowserUploadMethod='form'; //파일 오류났을때 alert띄워줌
+	config.filebrowserUploadUrl      = '/ck/uploads';
+
+	/*config.filebrowserImageUploadUrl = '/upload.do?type=Images';*/
 };

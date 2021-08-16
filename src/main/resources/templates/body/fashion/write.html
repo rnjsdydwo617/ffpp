@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="~{layout/default}">
 
-<th:block layout:fragment="content">
+<th:block layout:fragment="content" >
     <h3 class="pb-4 mb-4 fst-italic border-bottom">
         글쓰기
     </h3>
@@ -34,7 +34,7 @@
                     <script>
                         CKEDITOR.replace('editor' , {
                             height: 500,
-
+                            'filebrowserUploadUrl' : '/ck/test'
                         });
                     </script>
                     <button class="fa fa-plus" type="submit" th:text="작성"></button>
@@ -45,4 +45,5 @@
     <a class="btn btn-sm btn-outline-secondary" th:href="@{/}">글쓰기</a>
 
 </th:block>
+
 </html>
