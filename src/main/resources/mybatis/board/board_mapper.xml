@@ -14,4 +14,7 @@
     <select id="CategorieBoardGet" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_CATEGORIE_BOARD(#{categorie_code})
     </select>
+    <select id="boardDetail" resultType="com.example.test.mvc.board.BoardVO">
+        SELECT * FROM SYS_BOARD_LIST WHERE BOARD_CODE=#{board_code}
+    </select>
 </mapper>

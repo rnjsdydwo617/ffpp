@@ -25,4 +25,13 @@ public class BoardService {
     public List<BoardVO> CategorieBoardGet(){
         return bMap.BoardGet();
     }
+
+    //개시글수정
+    public int BoardUpdate(BoardVO vo){
+        return bMap.BoardUpdate(vo);
+    }
+    //개시글 불러오기
+    public BoardVO boardDetail(String board_code){
+        return bMap.boardDetail(board_code);
+    }
 }
