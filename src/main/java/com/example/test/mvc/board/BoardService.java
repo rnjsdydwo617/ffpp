@@ -31,7 +31,7 @@ public class BoardService {
         return bMap.BoardUpdate(vo);
     }
     //개시글 불러오기
-    public BoardVO boardDetail(String board_code){
+    public List<BoardVO> boardDetail(String board_code){
         return bMap.boardDetail(board_code);
     }
 }

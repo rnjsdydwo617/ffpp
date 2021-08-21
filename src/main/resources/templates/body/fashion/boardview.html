@@ -4,7 +4,7 @@
       layout:decorator="~{layout/default}">
 <th:block layout:fragment="content">
     <body>
-    <div class="row mb-2" th:each="list:${CategorieBoardGet}">
+    <div class="row mb-2" th:each="list:${boardview}">
 
         <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}">
 
@@ -15,7 +15,7 @@
                     <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
                     <h3 class="mb-2" th:utext="${list.board_title}"></h3>
                     <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
-                    <div th:text="${list.board_contents}"></div>
+                    <div th:utext="${list.board_contents}"></div>
 
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -25,4 +25,5 @@
         </div>
     </div>
     </body>
+</th:block>
 </html>

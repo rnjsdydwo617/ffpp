@@ -13,7 +13,7 @@ public interface BoardMapper {
     int BoardUpdate(BoardVO vo);        //개시글 수정
     List<BoardVO> BoardGet();           //개시판가지고오기
     List<CategorieVO> CategorieGet();   //카테고리 가지고오기
-    BoardVO boardDetail(String board_code);   //개시글 상세보기
+    List<BoardVO> boardDetail(String board_code);   //개시글 상세보기
 
 
 

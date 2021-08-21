@@ -30,9 +30,9 @@
                         <input type="text" class="form-control" name="board_sub_title" id="board_sub_title" placeholder="부제목을 입력해 주세요">
                     </div>
 
-                    <textarea id="editor" name="editor" cols="30" rows="8"></textarea>
+                    <textarea id="board_contents" name="board_contents" cols="30" rows="8"></textarea>
                     <script>
-                        CKEDITOR.replace('editor' , {
+                        CKEDITOR.replace('board_contents' , {
                             height: 500,
                             'filebrowserUploadUrl' : '/ck/test'
                         });

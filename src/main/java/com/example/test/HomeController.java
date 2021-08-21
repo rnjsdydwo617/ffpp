@@ -39,7 +39,8 @@ public class HomeController {
     @RequestMapping(value = "/boardview/{board_code}")
     public ModelAndView boarddetail(@PathVariable("board_code")String board_code) {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("boardview",bSvc.boardDetail(board_code));
+        List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
+        mav.addObject("boardview",boardDetail);
         mav.setViewName("body/fashion/boardview");
         return mav;
     }
