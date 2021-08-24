@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class UserRestController {
     }
 
     @PostMapping(value = "/loginAction")
-    public UserVO LoginAction(UserVO vo , HttpServletRequest req) throws IOException {
+    public UserVO LoginAction(UserVO vo , HttpServletRequest req, HttpServletResponse res) throws IOException {
         HttpSession session = req.getSession();
         UserVO result = uSvc.LoginAction(vo);
 

@@ -3,19 +3,9 @@ package com.example.test.mvc.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.net.UnknownHostException;
-import java.security.SecureRandom;
-import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
@@ -57,7 +47,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/logoutAction")
-    public String logoutAction(HttpServletRequest req) {
+    public String logoutAction(HttpServletRequest req,HttpServletResponse res) {
         HttpSession session = req.getSession();
         session.invalidate();
         return "hello";

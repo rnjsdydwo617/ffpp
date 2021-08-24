@@ -17,6 +17,7 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private BoardService bSvc;
+
     @RequestMapping(value = "/")
     public ModelAndView BoardGet(){
         ModelAndView mav = new ModelAndView();
@@ -25,7 +26,6 @@ public class HomeController {
         mav.setViewName("hello");
         return mav;
     }
-
     //글쓰기
     @RequestMapping(value = "/write")
     public ModelAndView write() {
@@ -45,11 +45,11 @@ public class HomeController {
         return mav;
     }
 
-    @RequestMapping(value = "/fashion_news")
-    public ModelAndView fashion_news() {
-        List<BoardVO> CategorieBoardGet = bSvc.CategorieBoardGet();
+    @RequestMapping(value = "/fashion_news/{CategorieCode}")
+    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code) {
+        List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
         ModelAndView mav = new ModelAndView();
-        mav.addObject("CategorieBoardGet",CategorieBoardGet);
+        mav.addObject("CategorieBoard",CategorieBoard);
         mav.setViewName("body/fashion/news");
 
         return mav;

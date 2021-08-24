@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.test.mapper.Board.BoardMapper">
     <insert id="BoardRegister" parameterType="com.example.test.mvc.board.BoardVO">
-        CALL SYS_BOARD_REGISTER(#{board_title},#{board_sub_title},#{categorie_code},#{board_contents})
+        CALL SYS_BOARD_REGISTER(#{board_title},#{board_sub_title},#{categorie_code},#{board_contents},#{user_id})
     </insert>
 
     <select id="BoardGet" resultType="com.example.test.mvc.board.BoardVO">
@@ -11,7 +11,7 @@
     <select id="CategorieGet" resultType="com.example.test.mvc.board.CategorieVO">
         SELECT * FROM SYS_CATEGORIE_LIST
     </select>
-    <select id="CategorieBoardGet" resultType="com.example.test.mvc.board.BoardVO">
+    <select id="CategorieBoard" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_CATEGORIE_BOARD(#{categorie_code})
     </select>
     <select id="boardDetail" resultType="com.example.test.mvc.board.BoardVO">

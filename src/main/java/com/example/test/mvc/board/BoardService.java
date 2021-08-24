@@ -22,8 +22,8 @@ public class BoardService {
     public List<CategorieVO> CategorieGet(){
         return bMap.CategorieGet();
     }
-    public List<BoardVO> CategorieBoardGet(){
-        return bMap.BoardGet();
+    public List<BoardVO> CategorieBoard(String code){
+        return bMap.CategorieBoard(code);
     }
 
     //개시글수정

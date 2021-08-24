@@ -8,7 +8,10 @@ import java.util.List;
 @Data
 public class BoardVO {
     private int result;
+    private String user_code;
+    private String user_name;
     private String board_code;
+    private String user_id;
     private String categorie_code;
     private String categorie_name;
     private String board_title;

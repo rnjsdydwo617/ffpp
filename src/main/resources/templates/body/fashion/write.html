@@ -37,6 +37,9 @@
                             'filebrowserUploadUrl' : '/ck/test'
                         });
                     </script>
+                    <div>
+                        <input type="hidden" name="user_id"th:value="${session.userData.getUser_id()}">
+                    </div>
                     <button class="fa fa-plus" type="submit" th:text="작성"></button>
                 </form>
             </div>
