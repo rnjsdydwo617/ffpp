@@ -26,11 +26,12 @@
         <!---->
         <form action="CategorieBoard" method="post">
         <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 link-secondary deco_none" href="/fashion_news/C00000">FASHION NEWS</a>
-                <a class="p-2 link-secondary deco_none" href="/lookbook/C00001">STYLE LOOK BOOK</a>
-                <a class="p-2 link-secondary deco_none" href="/sneakers/C00002">SNEAKERS</a>
-                <a class="p-2 link-secondary deco_none" href="/clothes/C00003">CLOTHES</a>
+            <nav class="nav d-flex justify-content-between" >
+                <a class="p-2 link-secondary deco_none" th:each="list :*{CategorieGet}" th:href="|@{/fashion_news}/*{list.categorie_code}|" th:text="*{list.categorie_name}"></a>
+                <!-- <a class="p-2 link-secondary deco_none" href="/lookbook/C00001">STYLE LOOK BOOK</a>
+                 <a class="p-2 link-secondary deco_none" href="/sneakers/C00002">SNEAKERS</a>
+                 <a class="p-2 link-secondary deco_none" href="/clothes/C00003">CLOTHES</a>
+                 -->
             </nav>
         </div>
         </form>

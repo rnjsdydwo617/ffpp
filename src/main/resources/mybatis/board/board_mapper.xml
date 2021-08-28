@@ -9,7 +9,7 @@
         CALL SYS_BOARD_GET()
     </select>
     <select id="CategorieGet" resultType="com.example.test.mvc.board.CategorieVO">
-        SELECT * FROM SYS_CATEGORIE_LIST
+        SELECT * FROM SYS_CATEGORIE_LIST ORDER BY categorie_num ASC
     </select>
     <select id="CategorieBoard" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_CATEGORIE_BOARD(#{categorie_code})
@@ -17,4 +17,8 @@
     <select id="boardDetail" resultType="com.example.test.mvc.board.BoardVO">
         SELECT * FROM SYS_BOARD_LIST WHERE BOARD_CODE=#{board_code}
     </select>
+    <update id="Viewcnt">
+        UPDATE SYS_BOARD_LIST SET BOARD_VIEWS = BOARD_VIEWS + 1
+        where BOARD_CODE = #{board_code};
+    </update>
 </mapper>

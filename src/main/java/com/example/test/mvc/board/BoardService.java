@@ -31,7 +31,12 @@ public class BoardService {
         return bMap.BoardUpdate(vo);
     }
     //개시글 불러오기
-    public List<BoardVO> boardDetail(String board_code){
+    public List<BoardVO> boardDetail(String board_code) {
         return bMap.boardDetail(board_code);
+    }
+    //조회수 올리기
+    public int Viewcnt(String board_code) throws Exception {
+        bMap.Viewcnt(board_code);
+        return bMap.Viewcnt(board_code);
     }
 }

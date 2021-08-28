@@ -22,7 +22,7 @@ public class BoardVO {
     private String img_name;
     private String create_day;
     private String update_day;
-    private int view;
+    private int board_views;
 }
 
 

@@ -22,8 +22,11 @@ public class HomeController {
     public ModelAndView BoardGet(){
         ModelAndView mav = new ModelAndView();
         List<BoardVO> BoardGet = bSvc.BoardGet();
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         mav.addObject("boardGet" , BoardGet);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("hello");
+
         return mav;
     }
     //글쓰기
@@ -37,10 +40,12 @@ public class HomeController {
     }
     //개시글 보기
     @RequestMapping(value = "/boardview/{board_code}")
-    public ModelAndView boarddetail(@PathVariable("board_code")String board_code) {
+    public ModelAndView boarddetail(@PathVariable("board_code")String board_code) throws Exception {
         ModelAndView mav = new ModelAndView();
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
         mav.addObject("boardview",boardDetail);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/boardview");
         return mav;
     }
@@ -48,30 +53,45 @@ public class HomeController {
     @RequestMapping(value = "/fashion_news/{CategorieCode}")
     public ModelAndView fashion_news(@PathVariable("CategorieCode")String code) {
         List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         ModelAndView mav = new ModelAndView();
         mav.addObject("CategorieBoard",CategorieBoard);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/news");
 
         return mav;
     }
     @RequestMapping(value = "/lookbook")
-    public ModelAndView lookbook() {
+    public ModelAndView lookbook(@PathVariable("CategorieCode")String code) {
+        List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         ModelAndView mav = new ModelAndView();
+        mav.addObject("CategorieBoard",CategorieBoard);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/lookbook");
         return mav;
     }
     @RequestMapping(value = "/sneakers")
-    public ModelAndView sneakers() {
+    public ModelAndView sneakers(@PathVariable("CategorieCode")String code) {
+        List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         ModelAndView mav = new ModelAndView();
+        mav.addObject("CategorieBoard",CategorieBoard);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/sneakers");
         return mav;
     }
     @RequestMapping(value = "/clothes")
-    public ModelAndView clothes() {
+    public ModelAndView clothes(@PathVariable("CategorieCode")String code) {
+        List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         ModelAndView mav = new ModelAndView();
+        mav.addObject("CategorieBoard",CategorieBoard);
+        mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/clothes");
         return mav;
     }
+
 
     // type -> 대분류
     // query -> 소분류

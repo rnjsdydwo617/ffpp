@@ -4,14 +4,15 @@
       layout:decorator="~{layout/default}">
 <th:block layout:fragment="content">
     <body>
-    <div class="row mb-2" th:each="list:${boardview}">
+    <div class="row mb-2">
 
-        <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}">
 
-        </h3>
-        <div class="col-md-11">
+
+        <div class="col-md-11" th:each="list:${boardview}">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}"></h3>
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
+                    <div th:utext="${list.board_views}"></div>
                     <div th:utext="${list.user_name}"></div>
                     <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
                     <h3 class="mb-2" th:utext="${list.board_title}"></h3>
