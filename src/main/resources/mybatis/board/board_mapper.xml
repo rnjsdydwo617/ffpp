@@ -5,9 +5,17 @@
         CALL SYS_BOARD_REGISTER(#{board_title},#{board_sub_title},#{categorie_code},#{board_contents},#{user_id})
     </insert>
 
+
     <select id="BoardGet" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_BOARD_GET()
     </select>
+    <select id="BoardBest" resultType="com.example.test.mvc.board.BoardVO">
+        CALL SYS_BOARD_BEST()
+    </select>
+    <select id="BoardNewPost" resultType="com.example.test.mvc.board.BoardVO">
+        CALL SYS_BOARD_NEW_POST()
+    </select>
+
     <select id="CategorieGet" resultType="com.example.test.mvc.board.CategorieVO">
         SELECT * FROM SYS_CATEGORIE_LIST ORDER BY categorie_num ASC
     </select>

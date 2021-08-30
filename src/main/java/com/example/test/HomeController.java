@@ -19,11 +19,13 @@ public class HomeController {
     private BoardService bSvc;
 
     @RequestMapping(value = "/")
-    public ModelAndView BoardGet(){
+    public ModelAndView BoardBest(){
         ModelAndView mav = new ModelAndView();
-        List<BoardVO> BoardGet = bSvc.BoardGet();
+        List<BoardVO> BoardBest = bSvc.BoardBest();
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
-        mav.addObject("boardGet" , BoardGet);
+        List<BoardVO> BoardNewPost = bSvc.BoardNewPost();
+        mav.addObject("BoardNewPost",BoardNewPost);
+        mav.addObject("BoardBest" , BoardBest);
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("hello");
 

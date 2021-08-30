@@ -19,6 +19,14 @@ public class BoardService {
     public List<BoardVO> BoardGet() {
         return bMap.BoardGet();
     }
+    //베스트글
+    public List<BoardVO> BoardBest() {
+        return bMap.BoardBest();
+    }
+    //최신글
+    public List<BoardVO> BoardNewPost() {
+        return bMap.BoardNewPost();
+    }
     public List<CategorieVO> CategorieGet(){
         return bMap.CategorieGet();
     }

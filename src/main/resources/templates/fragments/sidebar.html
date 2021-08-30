@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <th:block th:fragment="SideBar">
     <!--   left navbar [s]     -->
     <div class="col-md-3">
@@ -11,10 +11,8 @@
             <div class="p-4">
                 <h4 class="fst-italic">Categories</h4>
                 <ol class="list-unstyled mb-0">
-                    <li><a href="fashion_news">FASHION NEWS</a></li>
-                    <li><a href="lookbook">STYLE LOOK BOOK</a></li>
-                    <li><a href="sneakers">SNEAKERS</a></li>
-                    <li><a href="clothes">CLOTHES</a></li>
+                       <a class="p-1 link-secondary deco_none row" th:each="list :*{CategorieGet}" th:href="|@{/fashion_news}/*{list.categorie_code}|" th:text="*{list.categorie_name}">
+                       </a>
 
                 </ol>
             </div>
@@ -22,7 +20,7 @@
             <div class="p-4">
                 <h4 class="fst-italic">개발자 정보</h4>
                 <ol class="list-unstyled">
-                    <li><a href="#">GitHub</a></li>
+                    <li><a href="https://github.com/rnjsdydwo617">GitHub</a></li>
                 </ol>
             </div>
         </div>
