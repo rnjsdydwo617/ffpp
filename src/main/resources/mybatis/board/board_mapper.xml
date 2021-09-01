@@ -26,7 +26,6 @@
         SELECT * FROM SYS_BOARD_LIST WHERE BOARD_CODE=#{board_code}
     </select>
     <update id="Viewcnt">
-        UPDATE SYS_BOARD_LIST SET BOARD_VIEWS = BOARD_VIEWS + 1
-        where BOARD_CODE = #{board_code};
+        CALL SYS_BOARD_VIEW_CNT(#{board_code})
     </update>
 </mapper>
