@@ -42,18 +42,17 @@ public class HomeController {
     }
     //개시글 보기
     @RequestMapping(value = "/boardview/{board_code}")
-    public ModelAndView boarddetail(@PathVariable("board_code")String board_code) throws Exception {
+    public ModelAndView boarddetail(@PathVariable("board_code")String board_code) {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
-        bSvc.Viewcnt(board_code);
         mav.addObject("boardview",boardDetail);
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/boardview");
         return mav;
     }
 
-    @RequestMapping(value = "/fashion_news/{CategorieCode}")
+    @RequestMapping(value = "/categorie/{CategorieCode}")
     public ModelAndView fashion_news(@PathVariable("CategorieCode")String code) {
         List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
@@ -64,7 +63,9 @@ public class HomeController {
 
         return mav;
     }
-    @RequestMapping(value = "/lookbook")
+
+
+    /*@RequestMapping(value = "/lookbook")
     public ModelAndView lookbook(@PathVariable("CategorieCode")String code) {
         List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
@@ -93,7 +94,7 @@ public class HomeController {
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/clothes");
         return mav;
-    }
+    }*/
 
 
     // type -> 대분류

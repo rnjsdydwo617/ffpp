@@ -11,7 +11,7 @@
             <div class="p-4">
                 <h4 class="fst-italic">Categories</h4>
                 <ol class="list-unstyled mb-0">
-                       <a class="p-1 link-secondary deco_none row" th:each="list :*{CategorieGet}" th:href="|@{/fashion_news}/*{list.categorie_code}|" th:text="*{list.categorie_name}">
+                       <a class="p-1 link-secondary deco_none row" th:each="list :*{CategorieGet}" th:href="|@{/categorie}/*{list.categorie_code}|" th:text="*{list.categorie_name}">
                        </a>
 
                 </ol>

@@ -6,61 +6,78 @@
 
 
 <!-- 메인 인덱스 [s] -->
-<main class="container">
-
-        <!--베스트 글부분-->
-    <div class="row mb-2" >
-            <div>
-                <h3 class="pb-4 mb-4 fst-italic p-1 border-bottom">
-                    <a style="padding-right:5px; font-size:x-large">BEST</a>
-                    <a style="font-size: x-large">NEW POST</a>
-
-                </h3>
-            </div>
-
-            <div class="col-md-11"th:each="list :${BoardBest}">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
-                        <h3 class="mb-2" th:utext="${list.board_title}"></h3>
-                        <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
-                        <a th:href="|@{/boardview/}${list.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
-                    </div>
-                </div>
-            </div>
-
-    </div>
-
-
-    <!-- 최신글 [s] -->
-
-            <h3 class="pb-4 mb-4 fst-italic border-bottom">
-                NEW POST
-            </h3>
-            <div class="col-md-11"th:each="list :${BoardNewPost}">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
-                        <h3 class="mb-2" th:utext="${list.board_title}"></h3>
-                        <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
-                        <a th:href="|@{/boardview/}${list.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
-                    </div>
-                </div>
-            </div>
-        <!-- 최신글 [e] -->
-
-</main>
-<!-- 메인 인덱스 [e] -->
-<!-- 푸터 [s] -->
 <footer class="blog-footer">
     <th:block th:replace="fragments/footer :: Footer"></th:block>
 </footer>
+<!-- 메인 인덱스 [e] -->
+<!-- 푸터 [s] -->
+<main class="container">
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+
+                <!--베스트 글부분-->
+                <div class="row mb-2" >
+                    <div>
+                        <h3 class="pb-4 mb-4 fst-italic p-1 border-bottom">
+                            <a style="padding-right:5px; font-size:x-large">BEST</a>
+                        </h3>
+                    </div>
+
+                    <div class="col-md-11"th:each="list :${BoardBest}">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
+                                <h3 class="mb-2" th:utext="${list.board_title}"></h3>
+                                <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
+                                <a th:href="|@{/boardview/}${list.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
+                            </div>
+                            <div class="col-auto d-none d-lg-block">
+                                <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--베스트 글부분-->
+            </div>
+            <div class="carousel-item">
+                <!-- 최신글 [s] -->
+                <h3 class="pb-4 mb-4 fst-italic p-1 border-bottom">
+                    <a style="padding-right:5px; font-size:x-large">NEW POST</a>
+                </h3>
+                <div class="col-md-11"th:each="list :${BoardNewPost}">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
+                            <h3 class="mb-2" th:utext="${list.board_title}"></h3>
+                            <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
+                            <a th:href="|@{/boardview/}${list.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+                        </div>
+                    </div>
+                </div>
+                <!-- 최신글 [e] -->
+            </div>
+
+        </div>
+        <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+
+</main>
 <!-- 푸터 [e] -->
 </body>
 </html>

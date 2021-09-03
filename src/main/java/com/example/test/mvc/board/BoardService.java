@@ -40,11 +40,11 @@ public class BoardService {
     }
     //개시글 불러오기
     public List<BoardVO> boardDetail(String board_code) {
+        Viewcnt(board_code);
         return bMap.boardDetail(board_code);
     }
     //조회수 올리기
-    public int Viewcnt(String board_code) throws Exception {
+    public void Viewcnt(String board_code) {
         bMap.Viewcnt(board_code);
-        return bMap.Viewcnt(board_code);
     }
 }

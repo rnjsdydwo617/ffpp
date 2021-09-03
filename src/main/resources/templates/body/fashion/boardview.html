@@ -9,11 +9,13 @@
             <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}"></h3>
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
+                    <a>조회수</a>
                     <div th:utext="${list.board_views}"></div>
                     <div th:utext="${list.user_name}"></div>
                     <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
                     <h3 class="mb-2" th:utext="${list.board_title}"></h3>
                     <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
+
                     <div th:utext="${list.board_contents}"></div>
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -22,7 +24,7 @@
             </div>
 
 
-ss
+
             <a href="#" id="list" class="btn">목록으로</a>
             <a href="#" id="modify" class="btn">수정하기</a>
         </div>
