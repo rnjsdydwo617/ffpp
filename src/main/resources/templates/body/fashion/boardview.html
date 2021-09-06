@@ -4,32 +4,69 @@
       layout:decorator="~{layout/default}">
 <th:block layout:fragment="content">
     <body>
-    <div class="row mb-2">
-        <div class="col-md-11" th:each="list:${boardview}">
-            <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}"></h3>
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <a>조회수</a>
-                    <div th:utext="${list.board_views}"></div>
-                    <div th:utext="${list.user_name}"></div>
-                    <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
-                    <h3 class="mb-2" th:utext="${list.board_title}"></h3>
-                    <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
+        <div class="row mb-2">
+            <div class="col-md-11" th:each="list:${boardview}">
+                <h3 class="pb-4 mb-4 fst-italic border-bottom"th:utext="${list.categorie_name}"></h3>
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+<!--                    <div class="col p-4 d-flex flex-column position-static">-->
+<!--                        <a>조회수</a>-->
+<!--                        <div th:utext="${list.board_views}"></div>-->
+<!--                        <div th:utext="${list.user_name}"></div>-->
+<!--                        <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>-->
+<!--                        <h3 class="mb-2" th:utext="${list.board_title}"></h3>-->
+<!--                        <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>-->
 
-                    <div th:utext="${list.board_contents}"></div>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
+<!--                        <div th:utext="${list.board_contents}"></div>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto d-none d-lg-block">-->
+<!--                        <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>-->
+<!--                    </div>-->
+                                <table class="table">
+                                    <tr>
+                                        <th class="success">카테고리</th>
+                                        <td th:utext="${list.categorie_name}"></td>
+                                        <th class="success">조회수</th>
+                                        <td th:utext="${list.board_views}"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="success">작성자</th>
+                                        <td th:utext="${list.user_name}"></td>
+                                        <th class="success">작성일</th>
+                                        <td th:utext="${list.create_day}"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="success">제목</th>
+                                        <td colspan="3" th:utext="${list.board_title}"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="success">부제목</th>
+                                        <td colspan="3" th:utext="${list.board_sub_title}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td th:utext="${list.board_contents}"></td>
+                                        <td><img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></td>
+                                    </tr>
+                                </table>
+
+                    </table>
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <td>
+                                    <span style='float:right'>
+                                        <button type="button" id="list" class="btn btn-default" >목록</button>
+                                        <button type="button" id="modify" class="btn btn-default">수정</button>
+                                        <button type="button" id="delete" class="btn btn-default">삭제</button>
+                                        <button type="button" id="write" class="btn btn-default">글쓰기</button>
+                                    </span>
+                            </td>
+                        </tr>
+                        </thead>
+                    </table>
+
                 </div>
             </div>
-
-
-
-            <a href="#" id="list" class="btn">목록으로</a>
-            <a href="#" id="modify" class="btn">수정하기</a>
         </div>
-
-    </div>
     </body>
 </th:block>
 </html>
