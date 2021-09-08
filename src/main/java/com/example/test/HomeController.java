@@ -28,7 +28,6 @@ public class HomeController {
         mav.addObject("BoardBest" , BoardBest);
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("hello");
-
         return mav;
     }
     //글쓰기

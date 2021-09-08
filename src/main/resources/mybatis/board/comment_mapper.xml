@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test.mapper.Board.CommentMapper">
+
+    <insert id="commentInsert" parameterType="com.example.test.mvc.board.CommentVo">
+       CALL SYS_COM_REGISTER(#{BOARD_CODE},#{COM_CONTENT},#{USER_ID})
+    </insert>
+    <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM COMMENT
+    </select>
+
+    <select id="commentList" parameterType="String" resultType="com.example.test.mvc.board.CommentVo">
+        SELECT
+            *
+        FROM SYS_COMMENT where BOARD_CODE = #{BOARD_CODE}
+    </select>
+    <update id="commentUpdate" parameterType="com.example.test.mvc.board.CommentVo">
+        UPDATE COMMENT
+        SET
+            CONTENT = #{content}
+        WHERE CNO = #{cno}
+    </update>
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM COMMENT WHERE CNO = #{cno}
+    </delete>
+
+</mapper>

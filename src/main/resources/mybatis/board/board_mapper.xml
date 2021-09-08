@@ -4,8 +4,6 @@
     <insert id="BoardRegister" parameterType="com.example.test.mvc.board.BoardVO">
         CALL SYS_BOARD_REGISTER(#{board_title},#{board_sub_title},#{categorie_code},#{board_contents},#{user_id})
     </insert>
-
-
     <select id="BoardGet" resultType="com.example.test.mvc.board.BoardVO">
         CALL SYS_BOARD_GET()
     </select>

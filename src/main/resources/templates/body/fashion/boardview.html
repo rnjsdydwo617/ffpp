@@ -42,11 +42,13 @@
                                         <th class="success">부제목</th>
                                         <td colspan="3" th:utext="${list.board_sub_title}"></td>
                                     </tr>
-                                    <tr>
-                                        <td th:utext="${list.board_contents}"></td>
-                                        <td><img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></td>
-                                    </tr>
                                 </table>
+                    <table>
+                        <tr>
+                            <td th:utext="${list.board_contents}"></td>
+                            <td><img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></td>
+                        </tr>
+                    </table>
 
                     </table>
                     <table class="table table-condensed">
@@ -54,14 +56,30 @@
                         <tr>
                             <td>
                                     <span style='float:right'>
-                                        <button type="button" id="list" class="btn btn-default" >목록</button>
-                                        <button type="button" id="modify" class="btn btn-default">수정</button>
-                                        <button type="button" id="delete" class="btn btn-default">삭제</button>
-                                        <button type="button" id="write" class="btn btn-default">글쓰기</button>
+                                        <a type="button" id="list" class="btn btn-default" >목록</a>
+                                        <a type="button" id="write" class="btn btn-default"th:href="@{/write}">글쓰기</a>
+
                                     </span>
                             </td>
                         </tr>
                         </thead>
+                        <div class="container">
+                            <label for="content">댓글</label>
+                            <form name="commentInsertForm">
+                                <div class="input-group">
+                                    <input type="hidden" name="user_id"th:value="${session.userData.getUser_id()}">
+                                    <input type="hidden" name="board_code" th:value="${list.board_code}"/>
+                                    <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+                                    <span class="input-group-btn">
+                                    <a class="btn btn-default" type="button" name="commentInsertBtn" id="commentInsertBtn">등록</a>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container">
+                            <div class="commentList"></div>
+                        </div>
+
                     </table>
 
                 </div>

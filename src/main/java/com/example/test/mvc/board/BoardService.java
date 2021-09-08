@@ -43,6 +43,7 @@ public class BoardService {
         Viewcnt(board_code);
         return bMap.boardDetail(board_code);
     }
+
     //조회수 올리기
     public void Viewcnt(String board_code) {
         bMap.Viewcnt(board_code);
