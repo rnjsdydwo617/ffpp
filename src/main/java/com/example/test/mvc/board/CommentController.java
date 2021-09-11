@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,6 +21,10 @@ public class CommentController {
     @RequestMapping(value = "/list/{board_code}") //댓글 리스트
     @ResponseBody
     private List<CommentVo> mCommentServiceList(@PathVariable(name = "board_code") String cno){
+        ModelAndView mav = new ModelAndView();
+        List<CommentVo> commentList = mCommentService.commentListService(cno);
+        mav.addObject("commentList" , commentList);
+        mav.setViewName("/body/fashion/boardview");
         return mCommentService.commentListService(cno);
     }
 

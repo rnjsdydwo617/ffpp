@@ -42,22 +42,24 @@ function commentList(){
         url : '/comment/list/'+c,
         type : 'POST',
         success : function(data){
+
             var a ='';
             $.each(data, function(key, value){
                 a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
-                a += '<div class="commentInfo'+value.cno+'">'+'댓글번호 : '+value.cno+' / 작성자 : ' +value.writer;
-                a += '<a onclick="commentUpdate('+value.cno+',\''+value.content+'\');"> 수정 </a>';
+                a += '<div class="commentInfo'+value.cno+'">'+'작성일 : '+value.create_DAY+' / 작성자 : ' +value.user_ID;
+                a += '<a onclick="commentUpdate('+value.cno+',\''+value.com_CONTENT+'\');"> 수정 </a>';
                 a += '<a onclick="commentDelete('+value.cno+');"> 삭제 </a> </div>';
-                a += '<div class="commentContent'+value.cno+'"> <p> 내용 : '+value.content +'</p>';
+                a += '<div class="commentContent'+value.cno+'"> <p> 내용 : '+value.com_CONTENT +'</p>';
                 a += '</div></div>';
             });
-
             $(".commentList").html(a);
         }
     });
 }
 //댓글 등록
+
 function commentInsert(insertData){
+
     $.ajax({
         url : '/comment/insert',
         type : 'post',
@@ -93,6 +95,8 @@ function commentDelete(cno){
         }
     });
 }
+
+
 
 
 

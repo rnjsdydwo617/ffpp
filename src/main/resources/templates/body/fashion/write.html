@@ -17,8 +17,8 @@
                     <!--each  addObject에서 부여된 리스트에 별칭을 줘야 데이터를 뽑아 올 수 있다 -->
                     <select name="categorie_code">
                         <option value="none">카테고리</option>
-                        <th:block th:each="mnList :${mnList}">
-                            <option name="categorie_code"th:value="${mnList.categorie_code}" th:text="${mnList.categorie_name}"></option>
+                        <th:block th:each="list :${CategorieGet}">
+                            <option name="categorie_code"th:value="${list.categorie_code}" th:text="${list.categorie_name}"></option>
                         </th:block>
                     </select>
                     <div class="mb-3">

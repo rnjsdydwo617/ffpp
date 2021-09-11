@@ -9,6 +9,6 @@ public class CommentVo {
     private String BOARD_CODE;
     private String USER_ID;
     private String COM_CONTENT;
-    private String CREATR_DAY;
+    private String CREATE_DAY;
 
 }

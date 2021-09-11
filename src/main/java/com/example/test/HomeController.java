@@ -35,7 +35,7 @@ public class HomeController {
     public ModelAndView write() {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet =bSvc.CategorieGet();
-        mav.addObject("mnList", CategorieGet);
+        mav.addObject("CategorieGet", CategorieGet);
         mav.setViewName("body/fashion/write");
         return mav;
     }
@@ -45,6 +45,7 @@ public class HomeController {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
+
         mav.addObject("boardview",boardDetail);
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/boardview");
