@@ -65,15 +65,17 @@
                         </tr>
                         </thead>
                         <div class="container">
-                            <div class="m-t-2" style="font-size: x-large">
+                            <div class="pb-4 mb-4 fst-italic border-bottom">
                             <th:block th:if="${session.isEmpty()}">
-                                <a>댓글은 로그인후 사용가능합니다</a>
+                                <h3>댓글작성은 로그인후 사용가능합니다</h3>
                             </th:block>
                             </div>
 
+
                             <th:block th:if="${!session.isEmpty()}">
-                            <label for="content"style="font-size: large">댓글</label>
+                            <label for="content"style="font-size: xx-large">댓글</label>
                             <form name="commentInsertForm">
+                                <div class="pb-4 mb-4 fst-italic border-bottom">
                                 <div class="input-group">
                                     <input type="hidden" name="user_id"th:value="${session.userData.getUser_id()}">
                                     <input type="hidden" name="board_code" th:value="${list.board_code}"/>
@@ -81,6 +83,7 @@
                                     <span class="input-group-btn">
                                     <a class="btn btn-m btn-outline-secondary" type="button" name="commentInsertBtn" id="commentInsertBtn">등록</a>
                                     </span>
+                                </div>
                                 </div>
                             </form>
                             </th:block>

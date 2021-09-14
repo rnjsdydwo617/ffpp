@@ -38,6 +38,7 @@ public class BoardService {
     public int BoardUpdate(BoardVO vo){
         return bMap.BoardUpdate(vo);
     }
+
     //개시글 불러오기
     public List<BoardVO> boardDetail(String board_code) {
         Viewcnt(board_code);

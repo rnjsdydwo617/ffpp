@@ -3,13 +3,111 @@
 <head th:replace="fragments/subheader :: SubHeader">
     <title>회원가입</title>
 </head>
+
+<body>
+<div class="container">
+    <div class="input-form-backgroud row">
+        <div class="input-form col-md-12 mx-auto">
+            <h2 class="mb-3">회원가입</h2>
+            <form class="validation-form" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="user_id">ID</label>
+                        <input type="text" class="form-control"  id="user_id" name="user_id"  placeholder="아이디" required>
+                        <a type="Button" onclick="idcheck()" style="color: #3768ff" id="id_check">중복체크</a>
+                        <div class="invalid-feedback">
+                            아이디를 입력해주세요.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="user_name">Name</label>
+                        <input type="text" class="form-control" name="user_name" id="user_name"  required>
+                        <div class="invalid-feedback">
+                            이름을 입력해주세요.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">E_mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="FFPP@example.com" required>
+                    <div class="invalid-feedback">
+                        이메일을 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">주소</label>
+                    <input type="text" class="form-control" id="address" placeholder="서울특별시 강남구" required>
+                    <div class="invalid-feedback">
+                        주소를 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
+                    <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력해주세요.">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="root">가입 경로</label>
+                        <select class="custom-select d-block w-100" id="root">
+                            <option value=""></option>
+                            <option>검색</option>
+                            <option>카페</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            가입 경로를 선택해주세요.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="code">추천인 코드</label>
+                        <input type="text" class="form-control" id="code" placeholder="" required>
+                        <div class="invalid-feedback">
+                            추천인 코드를 입력해주세요.
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="aggrement" required>
+                    <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+                </div>
+                <div class="mb-4"></div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+            </form>
+        </div>
+    </div>
+    <footer class="my-3 text-center text-small">
+        <p class="mb-1">&copy; 2021 YD</p>
+    </footer>
+</div>
+<script>
+    window.addEventListener('load', () => {
+        const forms = document.getElementsByClassName('validation-form');
+
+        Array.prototype.filter.call(forms, (form) => {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+</script>
+</body>
+<!--
     <body class="text-center">
         <div class="form-signin">
             <img class="mb-4" src="https://e7.pngegg.com/pngimages/710/549/png-clipart-pig-computer-icons-pig-animals-vector-icons.png" alt="" width="72" height="57">
                 <h1 class=femi mb-4 fw-normal style="font-size: 45px">패미 회원가입</h1>
             <form action="/uRegister" method="post" name="registerForm">
 
-                <!--ID 입력-->
+
                 <div class="wrap-input100- validate-input m-b-14">
                     <div class="input-group mb-2 mt-3">
                         <input class="input50 form-control " type="text" id="user_id" name="user_id"  placeholder="아이디" autocomplete="off" required/>
@@ -18,7 +116,7 @@
                         <input type="hidden"id="chkYn" value="0">
                     </div>
                 </div>
-                <!--패스워드 입력-->
+
                 <input type="password" name="user_pwd" class="form-control mb-2"  placeholder="비밀번호" autocomplete="off" required/>
                 <input type="text" name="user_name" class="form-control mb-2" placeholder="이름" autocomplete="off" required/>
                 <input type="text" name="email" class="form-control mb-4" placeholder="이메일" autocomplete="off" required/>
@@ -28,6 +126,7 @@
 
         </div>
     </body>
+-->
 <th:block th:replace="fragments/footer :: Footer"></th:block>
 <script th:src="@{/js/user/user_signup.js}"></script>
 </html>

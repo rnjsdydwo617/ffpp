@@ -45,11 +45,11 @@ function commentList(){
 
             var a ='';
             $.each(data, function(key, value){
-                a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
-                a += '<div class="commentInfo'+value.cno+'">'+'작성일 : '+value.create_DAY+' / 작성자 : ' +value.user_ID;
+                a += '<div class="commentArea">';
+                a += '<div class="commentInfo">'+'작성일 : '+value.create_DAY+' / 작성자 : ' +value.user_ID;
                 a += '<a onclick="commentUpdate('+value.cno+',\''+value.com_CONTENT+'\');"> 수정 </a>';
                 a += '<a onclick="commentDelete('+value.cno+');"> 삭제 </a> </div>';
-                a += '<div class="commentContent'+value.cno+'"> <p> 내용 : '+value.com_CONTENT +'</p>';
+                a += '<div class="commentContent"> <p> 내용 : '+value.com_CONTENT +'</p>';
                 a += '</div></div>';
             });
             $(".commentList").html(a);
@@ -74,11 +74,11 @@ function commentInsert(insertData){
 }
 
 //댓글 수정 - 댓글 내용 출력을 input 폼으로 변경
-function commentUpdate(cno, content){
+function commentUpdate(cno, com_CONTENT){
     var a ='';
 
     a += '<div class="input-group">';
-    a += '<input type="text" class="form-control" name="content_'+cno+'" value="'+content+'"/>';
+    a += '<input type="text" class="form-control" name="content_'+cno+'" value="'+com_CONTENT+'"/>';
     a += '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="commentUpdateProc('+cno+');">수정</button> </span>';
     a += '</div>';
 
