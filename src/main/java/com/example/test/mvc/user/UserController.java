@@ -55,6 +55,7 @@ public class UserController {
 
     @PostMapping(value = "/uRegister")
     public String UserRegister(UserVO vo) {
+        System.out.println(vo);
         return uSvc.UserRegister(vo);
     }
 }

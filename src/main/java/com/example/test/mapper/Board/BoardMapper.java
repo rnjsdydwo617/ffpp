@@ -3,6 +3,7 @@ package com.example.test.mapper.Board;
 import com.example.test.mvc.board.BoardVO;
 import com.example.test.mvc.board.CategorieVO;
 import com.example.test.mvc.board.CommentVo;
+import com.example.test.paging.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -19,6 +20,11 @@ public interface BoardMapper {
     List<CategorieVO> CategorieGet();   //카테고리 가지고오기
     List<BoardVO> boardDetail(String board_code);   //개시글 상세보기
     int Viewcnt(String board_code);
+    List<BoardVO> selectBoardList(Criteria criteria);
+    int selectBoardTotalCount(Criteria criteria);
+
+
+
 }
 
 

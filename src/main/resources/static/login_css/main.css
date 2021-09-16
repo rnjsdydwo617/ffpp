@@ -20,6 +20,12 @@ a {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
 
 a:focus {
 	outline: none !important;
@@ -495,3 +501,4 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
+

@@ -16,7 +16,7 @@
 
     <!--회원가입 쿼리-->
     <insert id="UserRegister" parameterType="com.example.test.mvc.user.UserVO" >
-        CALL SYS_USER_SIGN_UP(#{user_id} , #{user_pwd} , #{user_name} , #{email})
+        CALL SYS_USER_SIGN_UP(#{user_id} , #{user_pwd} , #{user_name} , #{email}, #{gender})
     </insert>
 
 </mapper>

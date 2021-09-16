@@ -11,6 +11,7 @@ public class UserVO {
     private String user_code;
     private String user_name;
     private String email;
+    private String gender;
     private String msg;
 }
 
