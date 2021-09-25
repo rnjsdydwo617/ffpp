@@ -38,6 +38,7 @@ public class MainApplication extends SpringBootServletInitializer {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*_mapper.xml");
+        sessionFactory.setTypeAliasesPackage("com.example.test.*");
         sessionFactory.setMapperLocations(res);
         return sessionFactory.getObject();
     }

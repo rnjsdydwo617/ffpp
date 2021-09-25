@@ -26,4 +26,20 @@
     <update id="Viewcnt">
         CALL SYS_BOARD_VIEW_CNT(#{board_code})
     </update>
+
+    <select id="selectBoardList" parameterType="Criteria" resultType="com.example.test.mvc.board.BoardVO">
+        SELECT * FROM SYS_BOARD_LIST
+        WHERE CATEGORIE_CODE = #{categorie_code}
+        ORDER BY
+        BOARD_CODE ASC
+        LIMIT
+        #{startPage}, #{recordsPerPage}
+    </select>
+
+    <select id="selectBoardTotalCount" parameterType="Criteria" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            SYS_BOARD_LIST
+    </select>
 </mapper>

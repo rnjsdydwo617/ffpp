@@ -32,7 +32,8 @@
                                         <th class="success">작성자</th>
                                         <td th:utext="${list.user_name}"></td>
                                         <th class="success">작성일</th>
-                                        <td th:utext="${list.create_day}"></td>
+                                        <td th:utext="${#temporals.format(list.create_day,'yyyy-MM-dd')}"></td>
+
                                     </tr>
                                     <tr>
                                         <th class="success">제목</th>

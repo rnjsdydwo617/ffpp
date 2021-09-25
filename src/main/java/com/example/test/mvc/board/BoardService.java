@@ -2,9 +2,11 @@ package com.example.test.mvc.board;
 
 import com.example.test.mapper.Board.BoardMapper;
 import com.example.test.mvc.user.UserVO;
+import com.example.test.paging.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -18,7 +20,9 @@ public class BoardService {
     }
     public List<BoardVO> BoardGet() {
         return bMap.BoardGet();
+
     }
+
     //베스트글
     public List<BoardVO> BoardBest() {
         return bMap.BoardBest();
@@ -48,5 +52,16 @@ public class BoardService {
     //조회수 올리기
     public void Viewcnt(String board_code) {
         bMap.Viewcnt(board_code);
+    }
+
+
+
+    public List<BoardVO> getBoardList(Criteria criteria) {
+        List<BoardVO> boardList = Collections.emptyList();
+        int boardTotalCount = bMap.selectBoardTotalCount(criteria);
+        if (boardTotalCount > 0) {
+            boardList = bMap.selectBoardList(criteria);
+        }
+        return boardList;
     }
 }

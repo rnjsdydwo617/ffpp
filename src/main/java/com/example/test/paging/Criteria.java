@@ -31,7 +31,4 @@ public class Criteria {
     public int getStartPage() {
         return (currentPageNo - 1) * recordsPerPage;
     }
-
-
-
 }

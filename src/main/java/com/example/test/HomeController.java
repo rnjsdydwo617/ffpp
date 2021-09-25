@@ -3,6 +3,7 @@ package com.example.test;
 import com.example.test.mvc.board.BoardService;
 import com.example.test.mvc.board.BoardVO;
 import com.example.test.mvc.board.CategorieVO;
+import com.example.test.paging.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class HomeController {
     }
     //개시글 보기
     @RequestMapping(value = "/boardview/{board_code}")
-    public ModelAndView boarddetail(@PathVariable("board_code")String board_code) {
+    public ModelAndView boarddetail(@PathVariable("board_code")String board_code ) {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
@@ -52,17 +53,21 @@ public class HomeController {
         return mav;
     }
 
+
     @RequestMapping(value = "/categorie/{CategorieCode}")
-    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code) {
+    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code, Criteria criteria) {
         List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
+        List<BoardVO> boardList = bSvc.getBoardList(criteria);
         ModelAndView mav = new ModelAndView();
         mav.addObject("CategorieBoard",CategorieBoard);
         mav.addObject("CategorieGet",CategorieGet);
+        mav.addObject("boardList",boardList);
         mav.setViewName("body/fashion/news");
 
         return mav;
     }
+
 
 
     /*@RequestMapping(value = "/lookbook")
