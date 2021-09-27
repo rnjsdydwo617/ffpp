@@ -2,12 +2,16 @@ package com.example.test.mvc.board;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class BoardVO {
+@Getter
+@Setter
+public class BoardVO extends CommonVo{
     private int result;
     private String user_code;
     private String user_name;

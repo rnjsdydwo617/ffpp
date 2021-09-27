@@ -7,6 +7,7 @@ import com.example.test.paging.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -55,11 +56,12 @@ public class HomeController {
 
 
     @RequestMapping(value = "/categorie/{CategorieCode}")
-    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code, Criteria criteria) {
+    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code,@ModelAttribute("params") BoardVO params) {
         List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
-        List<BoardVO> boardList = bSvc.getBoardList(criteria);
+        List<BoardVO> boardList = bSvc.getBoardList(params);
         ModelAndView mav = new ModelAndView();
+        mav.addObject("params",params);
         mav.addObject("CategorieBoard",CategorieBoard);
         mav.addObject("CategorieGet",CategorieGet);
         mav.addObject("boardList",boardList);

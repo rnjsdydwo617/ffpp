@@ -3,6 +3,7 @@ package com.example.test.mvc.board;
 import com.example.test.mapper.Board.BoardMapper;
 import com.example.test.mvc.user.UserVO;
 import com.example.test.paging.Criteria;
+import com.example.test.paging.PaginationInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,12 +57,19 @@ public class BoardService {
 
 
 
-    public List<BoardVO> getBoardList(Criteria criteria) {
+    public List<BoardVO> getBoardList(BoardVO params) {
         List<BoardVO> boardList = Collections.emptyList();
-        int boardTotalCount = bMap.selectBoardTotalCount(criteria);
+        int boardTotalCount = bMap.selectBoardTotalCount(params);
+        PaginationInfo paginationInfo = new PaginationInfo(params);
+        paginationInfo.setTotalRecordCount(boardTotalCount);
+
+        params.setPaginationInfo(paginationInfo);
+
         if (boardTotalCount > 0) {
-            boardList = bMap.selectBoardList(criteria);
+            boardList = bMap.selectBoardList(params);
         }
         return boardList;
     }
+
+
 }

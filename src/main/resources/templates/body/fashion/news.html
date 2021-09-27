@@ -19,6 +19,12 @@
                     </div>
                 </div>
             </div>
+
+            <th:block layout:fragment="paging">
+                <nav th:replace="fragments/common :: pagination"></nav>
+            </th:block>
+
+
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">
@@ -39,6 +45,17 @@
             </nav>
 
         </div>
+        <th:block layout:fragment="script">
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+
+                function movePage(uri, queryString) {
+                    location.href = uri + queryString;
+                }
+
+                /*]]>*/
+            </script>
+        </th:block>
 
 
     </body>
