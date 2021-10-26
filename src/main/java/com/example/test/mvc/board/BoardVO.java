@@ -1,6 +1,7 @@
 package com.example.test.mvc.board;
 
 
+import com.example.test.paging.PaginationInfo;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-public class BoardVO extends CommonVo{
+public class BoardVO {
     private int result;
     private String user_code;
     private String user_name;
@@ -28,6 +29,7 @@ public class BoardVO extends CommonVo{
     private LocalDate create_day;
     private String update_day;
     private int board_views;
+
 }
 
 

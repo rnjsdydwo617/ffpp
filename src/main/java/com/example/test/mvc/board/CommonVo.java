@@ -11,19 +11,19 @@ import java.time.LocalDateTime;
 @Setter
 public class CommonVo extends Criteria {
 
-    /** 페이징 정보 */
-    private PaginationInfo paginationInfo;
+    /** 페이징 정보  */
+    public PaginationInfo paginationInfo;
 
     /** 삭제 여부 */
-    private String deleteYn;
+    public String deleteYn;
 
     /** 등록일 */
-    private LocalDateTime insertTime;
+    public LocalDateTime insertTime;
 
     /** 수정일 */
-    private LocalDateTime updateTime;
+    public LocalDateTime updateTime;
 
     /** 삭제일 */
-    private LocalDateTime deleteTime;
+    public LocalDateTime deleteTime;
 
 }

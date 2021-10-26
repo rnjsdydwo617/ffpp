@@ -18,7 +18,9 @@
         SELECT * FROM SYS_CATEGORIE_LIST ORDER BY categorie_num ASC
     </select>
     <select id="CategorieBoard" resultType="com.example.test.mvc.board.BoardVO">
-        CALL SYS_CATEGORIE_BOARD(#{categorie_code})
+        SELECT * FROM SYS_BOARD_LIST
+        WHERE
+            CATEGORIE_CODE = #{categorie_code}
     </select>
     <select id="boardDetail" resultType="com.example.test.mvc.board.BoardVO">
         SELECT * FROM SYS_BOARD_LIST WHERE BOARD_CODE=#{board_code}
@@ -27,18 +29,5 @@
         CALL SYS_BOARD_VIEW_CNT(#{board_code})
     </update>
 
-    <select id="selectBoardList" parameterType="BoardVO" resultType="com.example.test.mvc.board.BoardVO">
-        SELECT * FROM SYS_BOARD_LIST
-        ORDER BY
-        BOARD_CODE ASC
-        LIMIT
-        #{PaginationInfo.firstRecordIndex}, #{recordsPerPage}
-    </select>
 
-    <select id="selectBoardTotalCount" parameterType="BoardVO" resultType="int">
-        SELECT
-            COUNT(*)
-        FROM
-            SYS_BOARD_LIST
-    </select>
 </mapper>

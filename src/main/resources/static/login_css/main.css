@@ -9,6 +9,16 @@ body, html {
 	font-family: 'NanumSquare', sans-serif !important;
 }
 
+.login-body {
+  width:100%;
+  height:100%;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+  background-repeat: no-repeat;
+  background:linear-gradient(to bottom right, #0098FF, #6BA8D1);
+}
 a {
 	font-family: 'NanumSquare', sans-serif !important;
 	font-size: 14px;
@@ -363,8 +373,8 @@ iframe {
 
 .login100-form-btn {
   font-family: 'NanumSquare', sans-serif !important;
-  font-size: 15px;
-  color: #fff;
+  font-size: 20px;
+  color: #000000;
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -378,9 +388,8 @@ iframe {
   padding: 0 20px;
   width: 100%;
   height: 55px;
-  background-color: #7300fb;
+  background-color: #0b4be8;
   border-radius: 3px;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -416,7 +425,12 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
-
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .container-login50-form-btn {
   width: 100%;
   display: -webkit-box;

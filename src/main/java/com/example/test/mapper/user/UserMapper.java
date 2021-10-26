@@ -11,5 +11,9 @@ public interface UserMapper {
     int UserRegister(UserVO vo);
 
     int IdCheck(UserVO vo);
+
+    int vaildTokenUser(String token);
+
+    int naverRegister(UserVO vo);
 }
 

@@ -4,12 +4,12 @@ import com.example.test.mvc.board.BoardService;
 import com.example.test.mvc.board.BoardVO;
 import com.example.test.mvc.board.CategorieVO;
 import com.example.test.paging.Criteria;
+import com.example.test.paging.PageInfo;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -32,11 +32,16 @@ public class HomeController {
         mav.setViewName("hello");
         return mav;
     }
+
+
     //글쓰기
     @RequestMapping(value = "/write")
     public ModelAndView write() {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet =bSvc.CategorieGet();
+        for(int i=0; i<CategorieGet.size(); i++) {
+            System.out.println(CategorieGet.get(i).getCategorie_name());
+        }
         mav.addObject("CategorieGet", CategorieGet);
         mav.setViewName("body/fashion/write");
         return mav;
@@ -47,7 +52,6 @@ public class HomeController {
         ModelAndView mav = new ModelAndView();
         List<CategorieVO> CategorieGet = bSvc.CategorieGet();
         List<BoardVO> boardDetail = bSvc.boardDetail(board_code);
-
         mav.addObject("boardview",boardDetail);
         mav.addObject("CategorieGet",CategorieGet);
         mav.setViewName("body/fashion/boardview");
@@ -56,17 +60,21 @@ public class HomeController {
 
 
     @RequestMapping(value = "/categorie/{CategorieCode}")
-    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code,@ModelAttribute("params") BoardVO params) {
-        List<BoardVO> CategorieBoard = bSvc.CategorieBoard(code);
-        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
-        List<BoardVO> boardList = bSvc.getBoardList(params);
+    public ModelAndView fashion_news(@PathVariable("CategorieCode")String code,
+                                     @RequestParam(required = false, defaultValue = "1") int pageNum,
+                                     @RequestParam(required = false, defaultValue = "1") int pageSize)
+    {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("params",params);
-        mav.addObject("CategorieBoard",CategorieBoard);
+        PageHelper.startPage(pageNum,pageSize);
+        List<CategorieVO> CategorieGet = bSvc.CategorieGet();
+        for(int i=0; i<CategorieGet.size(); i++) {
+            System.out.println(CategorieGet.get(i).getCategorie_name());
+        }
+        List<PageInfo> CategorieBoard = bSvc.CategorieBoard(code,pageNum);
+        PageInfo<PageInfo> page = new PageInfo<>(CategorieBoard);
+        mav.addObject("page",page);
         mav.addObject("CategorieGet",CategorieGet);
-        mav.addObject("boardList",boardList);
         mav.setViewName("body/fashion/news");
-
         return mav;
     }
 

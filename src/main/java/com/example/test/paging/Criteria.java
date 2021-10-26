@@ -10,26 +10,26 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class Criteria {
 
     /** 현재 페이지 번호 */
-    private int currentPageNo;
+    public int currentPageNo;
 
     /** 페이지당 출력할 데이터 개수 */
-    private int recordsPerPage;
+    public int recordsPerPage;
 
     /** 화면 하단에 출력할 페이지 사이즈 */
-    private int pageSize;
+    public int pageSize;
 
     /** 검색 키워드 */
-    private String searchKeyword;
+    public String searchKeyword;
 
     /** 검색 유형 */
-    private String searchType;
+    public String searchType;
 
-    private String categorie_code;
+    public String categorie_code;
 
     public Criteria() {
-        this.currentPageNo = 1;
-        this.recordsPerPage = 10;
-        this.pageSize = 10;
+        this.currentPageNo = 1;     /** 현재 페이지번호*/
+        this.recordsPerPage = 2;   /** 페이지당 출력할 데이터 개수*/
+        this.pageSize = 10;         /** 화면 하단에 출력할 페이지의 사이즈*/
 
     }
     public int getStartPage() {

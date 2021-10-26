@@ -16,7 +16,7 @@
                         <a class="btn btn-sm btn-outline-secondary" th:href="@{/login}">로그인</a>
                     </th:block>
                     <th:block th:if="${!session.isEmpty()}">
-                        <a href="#" th:text="${session.userData.getUser_name()}  + '님 환영합니다'"></a>
+<!--                        <a href="#" th:text="${session.userData.getUser_name()}  + '님 환영합니다'"></a>-->
                         <a class="btn btn-sm btn-outline-secondary" th:href="@{/write}">글쓰기</a>
                         <a class="btn btn-sm btn-outline-secondary" th:href="@{/logoutAction}">로그아웃</a>
                     </th:block>

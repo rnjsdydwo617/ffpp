@@ -3,7 +3,9 @@ package com.example.test.mvc.board;
 import com.example.test.mapper.Board.BoardMapper;
 import com.example.test.mvc.user.UserVO;
 import com.example.test.paging.Criteria;
+import com.example.test.paging.PageInfo;
 import com.example.test.paging.PaginationInfo;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +21,9 @@ public class BoardService {
     public int BoardRegister(BoardVO vo) {
         return bMap.BoardRegister(vo);
     }
+
     public List<BoardVO> BoardGet() {
         return bMap.BoardGet();
-
     }
 
     //베스트글
@@ -35,9 +37,12 @@ public class BoardService {
     public List<CategorieVO> CategorieGet(){
         return bMap.CategorieGet();
     }
-    public List<BoardVO> CategorieBoard(String code){
+
+    public List<PageInfo> CategorieBoard(String code, int pageNo){
+        PageHelper.startPage(pageNo, 10);
         return bMap.CategorieBoard(code);
     }
+
 
     //개시글수정
     public int BoardUpdate(BoardVO vo){
@@ -57,19 +62,19 @@ public class BoardService {
 
 
 
-    public List<BoardVO> getBoardList(BoardVO params) {
-        List<BoardVO> boardList = Collections.emptyList();
-        int boardTotalCount = bMap.selectBoardTotalCount(params);
-        PaginationInfo paginationInfo = new PaginationInfo(params);
-        paginationInfo.setTotalRecordCount(boardTotalCount);
-
-        params.setPaginationInfo(paginationInfo);
-
-        if (boardTotalCount > 0) {
-            boardList = bMap.selectBoardList(params);
-        }
-        return boardList;
-    }
+//   public List<BoardVO> getBoardList(BoardVO params) {
+//        List<BoardVO> boardList = Collections.emptyList();
+//        int boardTotalCount = bMap.selectBoardTotalCount(params);
+//        PaginationInfo paginationInfo = new PaginationInfo(params);
+//        paginationInfo.setTotalRecordCount(boardTotalCount);
+//
+//        params.setPaginationInfo(paginationInfo);
+//
+//        if (boardTotalCount > 0) {
+//            boardList = bMap.selectBoardList(params);
+//        }
+//        return boardList;
+//    }
 
 
 }

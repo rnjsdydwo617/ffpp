@@ -19,6 +19,10 @@ cmntForm.addEventListener('submit', function(event){
 
 function idcheck(){
     var user_id = $("#user_id").val();
+    var provider_id = $("#provider_id").val();
+    if (provider_id ==''){
+        alert("아이디를 입력하세요.");
+    }
     if (user_id == ''){
         alert("아이디를 입력하세요.");
     }
@@ -29,7 +33,8 @@ function idcheck(){
             cache: "false",
             dataType: "json",
             data: {
-                user_id: user_id
+                user_id: user_id ,
+                provider_id: provider_id
             },
             success: function (rs) {
                 if (rs == 0) {

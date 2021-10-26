@@ -19,4 +19,13 @@
         CALL SYS_USER_SIGN_UP(#{user_id} , #{user_pwd} , #{user_name} , #{email}, #{gender})
     </insert>
 
+    <select id="vaildTokenUser" parameterType="String" resultType="Integer">
+        SELECT COUNT(*) FROM SYS_USER_CD
+        WHERE token = #{token}
+    </select>
+    <insert id="naverRegister" parameterType="com.example.test.mvc.user.UserVO">
+        CALL SYS_OAUTH_SIGN_UP(#{provider_id},#{user_nm},#{token})
+    </insert>
+
+
 </mapper>

@@ -13,5 +13,9 @@ public class UserVO {
     private String email;
     private String gender;
     private String msg;
+    private String unique_id;
+    private String provider_id;
+    private String user_nm;
+    private String token;
 }
 

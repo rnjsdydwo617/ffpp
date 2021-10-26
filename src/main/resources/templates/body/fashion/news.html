@@ -4,22 +4,20 @@
       layout:decorator="~{layout/default}">
 <th:block layout:fragment="content">
     <body>
-
         <div class="row mb-2" >
-            <div class="col-md-11"th:each="list :${CategorieBoard}">
+            <div class="col-md-11"th:each="page :${page.list}">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary"th:utext="${list.categorie_name}"></strong>
-                        <h3 class="mb-2" th:utext="${list.board_title}"></h3>
-                        <div class="mb-1 text-muted"th:utext="${list.board_sub_title}"></div>
-                        <a th:href="|@{/boardview/}${list.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
+                        <strong class="d-inline-block mb-2 text-primary"th:utext="${page.categorie_name}"></strong>
+                        <h3 class="mb-2" th:utext="${page.board_title}"></h3>
+                        <div class="mb-1 text-muted"th:utext="${page.board_sub_title}"></div>
+                        <a th:href="|@{/boardview/}${page.board_code}|" class="stretched-link" th:text="바로가기">바로가기</a>
                     </div>
                     <div class="col-auto d-none d-lg-block">
                         <img class=width="200" height="250" src="https://t1.daumcdn.net/cfile/tistory/996EDC435E8E7EB334"></img>
                     </div>
                 </div>
             </div>
-
             <th:block layout:fragment="paging">
                 <nav th:replace="fragments/common :: pagination"></nav>
             </th:block>

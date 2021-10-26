@@ -27,4 +27,16 @@ public class UserService {
         }
     }
 
+
+    public int vaildTokenUser(String token) {
+        return uMapper.vaildTokenUser(token);
+    }
+
+    public String naverRegister(UserVO vo) {
+        if (uMapper.naverRegister(vo) == 0) {
+            return "body/user/signup";
+        } else {
+            return "body/user/login";
+        }
+    }
 }
